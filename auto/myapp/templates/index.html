@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<meta charset="UTF-8">
+<title>Login Page</title>
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+<link href="{% static 'css/style.css' %}" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+  integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">SMAP</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Content</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Status</a>
+          </li>
+          
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Video Type
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Long Video</a>
+              <a class="dropdown-item" href="#">Short Video</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">log in</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Register
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'treg' %}">Team Register</a>
+              <a class="dropdown-item" href="{% url 'nreg' %}">Normal Register</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="row mt-2">
+      <div class="col-sm-4 border p-0">
+        <div class="bg-info text-light text-center">
+          <h4>Notice bord</h4>
+          <marquee>
+            {% for n in nw %}
+            <p>{{n.newstext}}</p>
+            {% endfor %}
+          </marquee>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        {% block body %}
+
+
+        {% endblock body %}
+      </div>
+    </div>
+  </div>
+  <div class="row bg-dark">
+    <div class="col-sm-4 text-light text-center">
+      <img src="{% static 'images/python_logo.webp' %}" style="border-radius: 50%;" height="200px" />
+      <h4>Auto Post</h4>
+    </div>
+
+    <div class="col-sm-4 text-light text-center">
+      <h4>About Us</h4>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi ratione cum perferendis,<br />
+        inventore eaque doloribus quisquam adipisci hic dolorum distinctio dolorem enim<br />
+        reiciendis necessitatibus minus nulla amet eveniet, deserunt explicabo!</p>
+      <p>&copy; copyright 2022-2023 all right reserved , designed and developed by <i class="text-danger">Vishal
+          Kumar Bhakt</i></p>
+    </div>
+    <div class="col-sm-4 text-light text-center">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.3588491646497!2d80.96201571428043!3d26.92383598312279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd7e0637bf21%3A0x730fe46201abc68a!2z4KS44KWL4KSr4KWN4KSk4KWN4KSq4KWN4KSw4KWLIOCksuCksOCljeCkqOCkv-CkguCklyDgpLjgpYfgpILgpJ_gpLA!5e0!3m2!1shi!2sin!4v1661695634051!5m2!1shi!2sin"
+        width="150" height="150" style="border:0; border-radius: 50%;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <h4>Google Map</h4>
+    </div>
+  </div>
+</body>
+
+</html>

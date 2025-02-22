@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+{% block body %}
+<h4 style="color:blue;text-align:center;">
+    Team registration From
+</h4>
+    {% if msg %}
+    <p style="text-align:center;">{{msg}}</p>
+    {% endif %}
+<div style="width:60%;margin:0 auto;">
+    <form action="{% url 'treg' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Enter Team member Name</label>
+            <input type="text" name="tmname" required="true" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Enter Of Work</label>
+            <textarea type="text" name="tmwork" class="form-control" required="true"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Enter Team member Address</label>
+            <textarea name="tmaddress" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Enter Contact No</label>
+            <input type="number" name="tmcontactno" class="form-control" required="true"/>
+        </div>
+        <div class="form-group">
+            <label>Enter Email Address</label>
+            <input type="email" name="tmemailaddress" class="form-control" required="true"/>
+        </div>
+        <div class="form-group">
+            <label>Enter Aadhar No</label>
+            <input type="number" name="aadharno" class="form-control" required="true"/>
+        </div>
+        <div class="form-group">
+            <label>Enter Pan No</label>
+            <input type="text" name="panno" class="form-control" required="true"/>
+        </div>
+        <div class="form-group">
+            <label>Enter Password</label>
+            <input type="password" name="password" class="form-control" required="true"/>
+        </div>
+        <br/>
+        <input type="submit" value="Register" class="btn btn-info"/>
+    </form>
+    <br/>
+
+</div>
+{% endblock body %}
